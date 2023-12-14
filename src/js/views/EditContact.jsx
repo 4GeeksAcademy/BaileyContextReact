@@ -5,12 +5,12 @@ import { Context } from "../store/appContext";
 import { useParams, useNavigate } from "react-router-dom";
 
 
-function AddContact() { 
+function EditContact() { 
     const navigate = useNavigate(); 
-    //new contact formData object fn email add phone
-    const [formData, setFormData] = useState({fullName: "", address: '', email: '', phone: ''});
+    const params = useParams();
     const { store, actions } = useContext(Context);
-    
+    //find gets item var index in url
+    // const contact = store.contactList.find((item, index)=>index==params.index)
         return (
             <div className="container">
                 <div>
@@ -18,11 +18,13 @@ function AddContact() {
                     <form>
                         <div className="form-group">
                             <label>Full Name</label>
-                            <input type="text" 
+                            <input 
+                            type="text" 
                             className="form-control" 
                             placeholder="Full Name" 
-                            onClick={(e) => {}}
-                            //update form data on click
+                            onClick={(e) => this.setState({
+                                fullName: e.target.value
+                            })}
                             />
                         </div>
                         <div className="form-group">
@@ -40,7 +42,7 @@ function AddContact() {
                         <button 
                         type="button" 
                         className="btn btn-primary form-control"
-                        onClick={() => actions.addContact({
+                        onClick={() => actions.EditContact({
                             fullName: this.state.fullName
                         })}
                         >save</button>
@@ -51,4 +53,4 @@ function AddContact() {
     )
 }
 
-export default AddContact;
+export default EditContact;

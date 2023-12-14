@@ -1,11 +1,11 @@
 //displays one contact
 
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import {appContext } from "../store/appContext";
+import React, { useContext } from "react";
+import {Context } from "../store/appContext";
 
 function ContactCard({data}){
-    const { store, actions } = useContext(appContext);
+    const { store, actions } = useContext(Context);
     return(
         <div className="card">
             <div className="row g-0">
