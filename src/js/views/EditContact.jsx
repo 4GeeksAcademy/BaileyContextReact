@@ -1,9 +1,7 @@
 //form used to create or update contacts
-
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useParams, useNavigate } from "react-router-dom";
-
 
 function EditContact() { 
     const navigate = useNavigate(); 
@@ -14,7 +12,7 @@ function EditContact() {
         return (
             <div className="container">
                 <div>
-                    <h1 className="text-center mt-5">Add a new contact</h1>
+                    <h1 className="text-center mt-5">Edit Contact</h1>
                     <form>
                         <div className="form-group">
                             <label>Full Name</label>
