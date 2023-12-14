@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import {Context } from "../store/appContext";
+import image from "../../img/Anamendolla.jpg";
 
 function ContactCard({data}){
     const { store, actions } = useContext(Context);
@@ -10,7 +11,7 @@ function ContactCard({data}){
         <div className="card">
             <div className="row g-0">
                 <div className="col-md-3 px-3 py-2 d-flex align-items-center justify-content-around">
-                <img src="http://demos.themes.guide/bodeo/assets/images/users/m101.jpg" alt="Mike Anamendolla" 
+                <img src={image}
                     className="rounded-circle mx-auto d-block img-fluid" />
                 </div>
                 <div className="col-md-7">
