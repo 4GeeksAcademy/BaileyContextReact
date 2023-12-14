@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useContext } from "react";
-import { Context } from "../store/appContext"
-import ContactCard from "../component/ContactCard"
+import { Context } from "../store/appContext";
+import ContactCard from "../component/ContactCard.jsx";
 
 
 function AddContact() { 
@@ -49,3 +49,5 @@ function AddContact() {
             </div>
     )
 }
+
+export default AddContact;

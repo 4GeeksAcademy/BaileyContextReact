@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {AddContact} from "../views/AddContact.jsx";
-import {Contact} from "./views/Contact.jsx";
-import {Home} from "./views/home.jsx";
+import AddContact from "./views/AddContact.jsx";
+import Contact from "./views/Contact.jsx";
+import Home from "./views/home.jsx";
 
 import injectContext from "./store/appContext";
 

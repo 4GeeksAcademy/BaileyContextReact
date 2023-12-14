@@ -1,6 +1,6 @@
 //List of contacts 
 import { Link } from "react-router-dom";
-import ContactCard from "../component/ContactCard"
+import ContactCard from "../component/ContactCard.jsx"
 //import modal when its made?
 import store from "../store/appContext";
 import { useContext } from "react";

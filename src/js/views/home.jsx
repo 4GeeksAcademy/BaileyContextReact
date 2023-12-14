@@ -12,8 +12,8 @@ const Home = () => {
 	useEffect(() => {actions.getContacts()},[])
 	return (
 		<div className="text-center mt-5">
-			<Link to="/ContactCard"></Link>
-			<Link to="/AddContact"></Link>
+			<Link to="/ContactCard">Test</Link>
+			<Link to="/AddContact">Test</Link>
 			{/* put list here? */}
 			{/* {store.ContactList.map((contact, index) => { */}
 				

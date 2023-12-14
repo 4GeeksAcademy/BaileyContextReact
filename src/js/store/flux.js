@@ -6,6 +6,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			agenda_slug: "agendaPt59",
 			contact: {
 				//contact info on form
 				fullName: "",
@@ -19,13 +20,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction; get doesn't require body
 			// fetch().then().then(data => setStore({ "foo": data.bar }))
 			//How to get one user?????????????????
-			getActions: () => {
-				fetch("https://playground.4geeks.com/apis/fake/contact/agenda", {
+			getContacts: async () => {
+				const response = await fetch("https://playground.4geeks.com/apis/fake/contact/agenda", {
 					method: "GET",
 					headers: {"Content-Type":"application/json"}
 				})
-				getStore({
-					searchResults: data.results
+				const data = await response.json();
+				setStore({
+					contactList: data.results
 				})
 			}
 
