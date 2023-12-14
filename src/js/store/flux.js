@@ -64,15 +64,19 @@ const getState = ({ getStore, getActions, setStore }) => {
           contactList: data.results,
         });
       },
-
       // Now what??????update a change when I click save? or back to contacts?
       //Is this the Add new contact action?
       updateChange: (event) => {
-      	//get the store
-      	const store = getStore();
-      	setStore({contactList: {...store.contactList, [event.target.name]: event.target.value} })
-      	console.log(store.contactList)
-      }
+        //get the store
+        const store = getStore();
+        setStore({
+          contactList: {
+            ...store.contactList,
+            [event.target.name]: event.target.value,
+          },
+        });
+        console.log(store.contactList);
+      },
     },
   };
 };
