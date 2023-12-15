@@ -15,7 +15,7 @@ function ContactCard({data}){
                 </div>
                 <div className="col-md-7">
                     <div className="card-body">
-                        <h5 className="card-title">{data.fullName}</h5>
+                        <h5 className="card-title">{data.full_name}</h5>
                         <p className="card-text"><i className="fa-solid fa-location-dot me-2"></i>{data.address}</p>
                         <p className="card-text"><i className="fa-solid fa-phone-flip me-2"></i>{data.phone}</p>
                         <p className="card-text"><i className="fa-solid fa-envelope me-2"></i>{data.email}</p>

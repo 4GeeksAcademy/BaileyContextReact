@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddContact from "./views/AddContact.jsx";
 import Contact from "./views/Contact.jsx";
-import Home from "./views/home.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -15,8 +14,7 @@ const Layout = () => {
 	return (
 		<BrowserRouter basename={basename}>
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/Contact" element={<Contact />} />
+				<Route path="/" element={<Contact />} />
 				<Route path="/newContact" element={<AddContact />} />
 			</Routes>
 		</BrowserRouter>

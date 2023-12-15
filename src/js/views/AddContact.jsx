@@ -2,7 +2,7 @@
 
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 function AddContact() {
   const navigate = useNavigate();
@@ -56,15 +56,12 @@ function AddContact() {
           </div>
           <button
             type="button"
-            className="btn btn-primary form-control">
+            className="btn btn-primary form-control"
             onClick={() => navigate("/newContact")}>save
           </button>
-          <button onClick={() => navigate("/Contact")}>or get back to contacts</button>
-
-{/*           
-          <Link className="mt-3 w-100 text-center" to="/">
-            or get back to contacts
-          </Link> */}
+          <Link to="/">
+            <a>or get back to contacts</a>
+          </Link>
         </form>
       </div>
     </div>
