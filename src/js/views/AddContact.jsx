@@ -8,7 +8,7 @@ function AddContact() {
   const navigate = useNavigate();
   //new contact formData object fn email add phone
   const [formData, setFormData] = useState({
-    fullName: "",
+    full_name: "",
     address: "",
     email: "",
     phone: "",
@@ -57,7 +57,9 @@ function AddContact() {
           <button
             type="button"
             className="btn btn-primary form-control"
-            onClick={() => navigate("/newContact")}>save
+            onClick={() => navigate("/newContact")}
+          >
+            save
           </button>
           <Link to="/">
             <a>or get back to contacts</a>
