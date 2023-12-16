@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useParams, useNavigate } from "react-router-dom";
-
+//edit/id
 function EditContact() {
   const navigate = useNavigate();
   const params = useParams();

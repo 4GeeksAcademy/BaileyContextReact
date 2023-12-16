@@ -16,6 +16,7 @@ const Layout = () => {
 			<Routes>
 				<Route path="/" element={<Contact />} />
 				<Route path="/newContact" element={<AddContact />} />
+				<Route path="/editContact/:contactId" element={<EditContact />} />
 			</Routes>
 		</BrowserRouter>
 	);

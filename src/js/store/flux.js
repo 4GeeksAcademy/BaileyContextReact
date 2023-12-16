@@ -1,5 +1,7 @@
 // import ContactCard from "../component/ContactCard"
 
+import { object } from "prop-types";
+
 // build you application state (any data structure that needs to be shared with everything else) in the store in flux.js ,
 // and anything that changes that global application state goes in the actions in flux.js.
 
@@ -21,29 +23,18 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ contactList: data }));
       },
       //WTH
-      handleAdd: (event) => {
-        // event.preventDefault();
-        // const store = getStore();
-        // const { store, actions } = useContext(Context);
-        // const [fullName, setFullName] = useState("");
-        if(store) {
-          fetch(
-            "https://playground.4geeks.com/apis/fake/contact/"
-          ),
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(store.contactList),
-            }.then((response)=>response.json()).then((data)=>console.log(data)).catch((error)=>console.log(error))}
-            setStore({
-              contact: {
-                  full_name:"",
-                  email:"",
-                  agenda_slug: "klbailey",
-                  address:"",
-                  phone:"",
-                      }
-          })
+      handleAdd: (contact) => {
+        //post request
+        return fetch("https://playground.4geeks.com/apis/fake/contact/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(contact)
+        })
+
+
+        //move https://playground.4geeks.com/apis/fake/contact/
       },
       
 

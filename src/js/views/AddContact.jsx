@@ -7,12 +7,11 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 function AddContact() {
   const navigate = useNavigate();
   //new contact formData object fn email add phone
-  const [formData, setFormData] = useState({
-    full_name: "",
-    address: "",
-    email: "",
-    phone: "",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [addy, setAddy] = useState("");
+
   const { store, actions } = useContext(Context);
 
   return (
@@ -21,8 +20,14 @@ function AddContact() {
         <h1 className="text-center mt-5">Add a new contact</h1>
         <form onSubmit={(e) => {
           e.preventDefault();//prevent page reload
-          const data = new FormData(e.target);
-          console.log(Object.fromEntries(data));
+          
+          actions.handleAdd({
+            full_name: name,
+            email: email,
+            phone: phone,
+            address: addy,
+            agenda_slug: store.agenda_slug
+          }).then(()=>navigate("/"))
         }}>
           <div className="form-group">
             <label>Full Name</label>
@@ -30,7 +35,9 @@ function AddContact() {
               type="text"
               className="form-control"
               placeholder="Full Name"
-              onClick={(e) => {}}
+              value={name}
+              onChange={e=>setName(e.target.value)}
+              // onClick={(e) => {}}
               //update form data on click
             />
           </div>
@@ -40,6 +47,8 @@ function AddContact() {
               type="email"
               className="form-control"
               placeholder="Enter email"
+              value={email}
+              onChange={e=>setEmail(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -48,6 +57,8 @@ function AddContact() {
               type="phone"
               className="form-control"
               placeholder="Enter phone"
+              value={phone}
+              onChange={e=>setPhone(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -56,6 +67,8 @@ function AddContact() {
               type="text"
               className="form-control"
               placeholder="Enter address"
+              value={addy}
+              onChange={e=>setAddy(e.target.value)}
             />
           </div>
           <button
