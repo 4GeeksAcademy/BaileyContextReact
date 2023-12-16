@@ -19,7 +19,11 @@ function AddContact() {
     <div className="container">
       <div>
         <h1 className="text-center mt-5">Add a new contact</h1>
-        <form>
+        <form onSubmit={(e) => {
+          e.preventDefault();//prevent page reload
+          const data = new FormData(e.target);
+          console.log(Object.fromEntries(data));
+        }}>
           <div className="form-group">
             <label>Full Name</label>
             <input
@@ -55,14 +59,14 @@ function AddContact() {
             />
           </div>
           <button
-            type="button"
+            type="submit"
             className="btn btn-primary form-control"
-            onClick={() => navigate("/newContact")}
+            // onClick={() => navigate("/newContact")}
           >
             save
           </button>
           <Link to="/">
-            <a>or get back to contacts</a>
+            or get back to contacts
           </Link>
         </form>
       </div>

@@ -14,26 +14,51 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       // Use getActions to call a function within a fuction; get doesn't require body
       // fetch().then().then(data => setStore({ "foo": data.bar }))
-      //How to get one user?????????????????
       getContacts: () => {
         let store = getStore();
         fetch("https://playground.4geeks.com/apis/fake/contact/agenda/klbailey")
           .then((response) => response.json())
-          .then((data) => setStore({contactList: data}));
+          .then((data) => setStore({ contactList: data }));
       },
-      // Now what??????update a change when I click save? or back to contacts?
-      //Is this the Add new contact action?
-      updateChange: (event) => {
-        //get the store
-        const store = getStore();
-        setStore({
-          contactList: {
-            ...store.contactList,
-            [event.target.name]: event.target.value,
-          },
-        });
-        console.log(store.contactList);
+      //WTH
+      handleAdd: (event) => {
+        // event.preventDefault();
+        // const store = getStore();
+        // const { store, actions } = useContext(Context);
+        // const [fullName, setFullName] = useState("");
+        if(store) {
+          fetch(
+            "https://playground.4geeks.com/apis/fake/contact/"
+          ),
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(store.contactList),
+            }.then((response)=>response.json()).then((data)=>console.log(data)).catch((error)=>console.log(error))}
+            setStore({
+              contact: {
+                  full_name:"",
+                  email:"",
+                  agenda_slug: "klbailey",
+                  address:"",
+                  phone:"",
+                      }
+          })
       },
+      
+
+
+      // updateChange: (event) => {
+      //   //get the store
+      //   const store = getStore();
+      //   setStore({
+      //     contactList: {
+      //       ...store.contactList,
+      //       [event.target.name]: event.target.value,
+      //     },
+      //   });
+      //   console.log(store.contactList);
+      // },
     },
   };
 };

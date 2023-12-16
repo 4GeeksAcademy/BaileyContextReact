@@ -22,7 +22,7 @@ function Contact() {
           aria-expanded="true"
         >
           <ul className="list-group pull-down" id="contact-list">
-            {contactList?.map((contact, index) => {
+            {store.contactList?.map((contact, index) => {
               return <ContactCard key={index} data={contact} />;
             })}
           </ul>
