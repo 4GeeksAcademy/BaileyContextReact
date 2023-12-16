@@ -29,6 +29,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(contact)
         })
       },
+      //Edit Contacts
+      handleEdit: (event) => { 
+        let { id } = useParams();
+        // store.contact.find 
+        //const store = getStore();
+        // setStore
+        // console.log(store.contact)
+      }
       
     },
   };

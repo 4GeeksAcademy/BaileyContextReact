@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 
 function EditContact() {
   const navigate = useNavigate();
-  const params = useParams();
+  const {id} = useParams();
   const { store, actions } = useContext(Context);
   //edit via contactId/find gets item var index in url
   //<Route path="/editContact/:contactId" element={<EditContact />} />
-  // const contact = store.contactList.find((item, index)=>index==params.index)
+
+  const [myContact, setContact] = useState({full_name:"", address:"", phone:"", email:"", agenda_slug:"klbailey"});
+  const contact = store.contactList&& store.contactList.filter((myContact, index)=>index.id===id)[0]
+  console.log(contact)
   return (
     <div className="container">
       <div>
@@ -56,7 +59,7 @@ function EditContact() {
             type="button"
             className="btn btn-primary form-control"
             onClick={() =>
-              actions.EditContact({
+              actions.handleEdit({
                 full_name: this.state.full_name,
               })
             }
