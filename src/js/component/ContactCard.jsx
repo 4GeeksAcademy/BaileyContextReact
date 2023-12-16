@@ -22,7 +22,7 @@ function ContactCard({data}){
                     </div>
                 </div>
                 <div className="col-md-2 d-flex align-items-center justify-content-around">
-                    <Link to="/AddContact"><button className="btn"><i className="fa-solid fa-pencil"></i></button></Link>
+                    <Link to="/EditContact"><button className="btn"><i className="fa-solid fa-pencil"></i></button></Link>
                     <button className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa-solid fa-trash-can"></i></button>
                 </div>
             </div>

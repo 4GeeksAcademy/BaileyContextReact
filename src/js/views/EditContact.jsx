@@ -1,13 +1,14 @@
-//form used to create or update contacts
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useParams, useNavigate } from "react-router-dom";
-//edit/id
+
+
 function EditContact() {
   const navigate = useNavigate();
   const params = useParams();
   const { store, actions } = useContext(Context);
-  //find gets item var index in url
+  //edit via contactId/find gets item var index in url
+  //<Route path="/editContact/:contactId" element={<EditContact />} />
   // const contact = store.contactList.find((item, index)=>index==params.index)
   return (
     <div className="container">
@@ -60,7 +61,7 @@ function EditContact() {
               })
             }
           >
-            save
+            Save
           </button>
           <Link className="mt-3 w-100 text-center" to="/">
             or get back to contacts
