@@ -1,12 +1,12 @@
 //displays one contact
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import {Context } from "../store/appContext";
 import image from "../../img/Anamendolla.jpg";
 
 function ContactCard({data}){
     const { store, actions } = useContext(Context);
-    const navigate = useNavigate();
+
     return(
         <div className="card">
             <div className="row g-0">
@@ -23,7 +23,7 @@ function ContactCard({data}){
                     </div>
                 </div>
                 <div className="col-md-2 d-flex align-items-center justify-content-around">
-                    <button onClick={()=>{navigate("/AddContact/data.id")}} className="btn"><i className="fa-solid fa-pencil"></i></button>
+                    <Link to={`/EditContact/${data.id}`} className="btn"><i className="fa-solid fa-pencil"></i></Link>
                     <button className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa-solid fa-trash-can"></i></button>
                 </div>
             </div>

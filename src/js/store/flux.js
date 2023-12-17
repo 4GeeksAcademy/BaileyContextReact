@@ -30,14 +30,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
       },
       //Edit Contacts
-      handleEdit: (event) => { 
-        let { id } = useParams();
-        // store.contact.find 
-        //const store = getStore();
-        // setStore
-        // console.log(store.contact)
+      handleEdit: (id, contact) => {
+        return fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(contact)
+        })
       }
-      
     },
   };
 };
