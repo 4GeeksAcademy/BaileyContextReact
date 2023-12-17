@@ -11,8 +11,8 @@ function EditContact() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [addy, setAddy] = useState("");
+
   //edit via contactId/find gets item var index in url
-  //<Route path="/editContact/:contactId" element={<EditContact />} />
 
   const [myContact, setContact] = useState({
     full_name: "",

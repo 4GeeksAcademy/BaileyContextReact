@@ -1,4 +1,4 @@
-//form used to create or update contacts
+//form used to create contacts
 
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
@@ -37,8 +37,6 @@ function AddContact() {
               placeholder="Full Name"
               value={name}
               onChange={e=>setName(e.target.value)}
-              // onClick={(e) => {}}
-              //update form data on click
             />
           </div>
           <div className="form-group">
@@ -74,7 +72,6 @@ function AddContact() {
           <button
             type="submit"
             className="btn btn-primary form-control"
-            // onClick={() => navigate("/newContact")}
           >
             save
           </button>

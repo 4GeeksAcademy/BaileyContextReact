@@ -1,8 +1,6 @@
-// import ContactCard from "../component/ContactCard"
-// import { object } from "prop-types";
-
-// build you application state (any data structure that needs to be shared with everything else) in the store in flux.js ,
+// build application state (any data structure that needs to be shared with everything else) in the store in flux.js ,
 // and anything that changes that global application state goes in the actions in flux.js.
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -11,16 +9,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       contactList: [],
     },
     actions: {
-      // Use getActions to call a function within a fuction; get doesn't require body
+      // Use getContacts to call a function within a fuction; get doesn't require body
       getContacts: () => {
         let store = getStore();
         fetch("https://playground.4geeks.com/apis/fake/contact/agenda/klbailey")
           .then((response) => response.json())
           .then((data) => setStore({ contactList: data }));
       },
-      //Add Contacts
+      //Add Contacts, post request
       handleAdd: (contact) => {
-        //post request
         return fetch("https://playground.4geeks.com/apis/fake/contact/", {
           method: "POST",
           headers: {
@@ -29,7 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(contact)
         })
       },
-      //Edit Contacts
+      //Edit Contacts, put request
       handleEdit: (id, contact) => {
         return fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
           method: "PUT",
@@ -38,6 +35,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
           body: JSON.stringify(contact)
         })
+      },
+      //Delete Contacts
+      deleteContact: (id) => {
+        fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+          method: "DELETE",
+        });
       }
     },
   };
