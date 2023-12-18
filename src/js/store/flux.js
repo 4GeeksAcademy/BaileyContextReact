@@ -16,15 +16,22 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((response) => response.json())
           .then((data) => setStore({ contactList: data }));
       },
-      //Add Contacts, post request
-      handleAdd: (contact) => {
-        return fetch("https://playground.4geeks.com/apis/fake/contact/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(contact)
-        })
+      //Add Contacts, post request; async function waits for promises
+      handleAdd: async (contact) => {
+        try {
+          let response = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(contact)
+          })
+          if(response.status === 201) {
+            getActions().getContacts()
+          }
+        } catch(error){
+          console.log(error)
+        }     
       },
       //Edit Contacts, put request
       handleEdit: (id, contact) => {
@@ -36,11 +43,19 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(contact)
         })
       },
-      //Delete Contacts
-      deleteContact: (id) => {
-        fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
-          method: "DELETE",
-        });
+      //Delete Contacts async function waits for promises
+      deleteContact: async (id) => {
+        try{
+          let result = await fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+            method: "DELETE",
+          });
+          if(result.status==201){
+            getActions().getContacts()
+          }
+        }
+        catch(error){
+          console.log(error)
+        }        
       }
     },
   };

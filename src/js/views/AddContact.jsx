@@ -6,7 +6,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 
 function AddContact() {
   const navigate = useNavigate();
-  //new contact formData object fn email add phone
+  //new contact formData object fname email add phone
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");

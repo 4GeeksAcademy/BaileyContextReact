@@ -13,7 +13,6 @@ function EditContact() {
   const [addy, setAddy] = useState("");
 
   //edit via contactId/find gets item var index in url
-
   const [myContact, setContact] = useState({
     full_name: "",
     address: "",
@@ -59,8 +58,6 @@ function EditContact() {
               placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              // onClick={(e) => {}}
-              //update form data on click
             />
           </div>
           <div className="form-group">
@@ -96,7 +93,6 @@ function EditContact() {
           <button
             type="submit"
             className="btn btn-primary form-control"
-            // onClick={() => navigate("/newContact")}
           >
             save
           </button>
